@@ -1,0 +1,14 @@
+.flag--pony {
+	background-image: url('../images/pony.svg'),
+	linear-gradient(
+		to bottom,
+		#000000 0%,  #000000 38%, 
+		#FFFFFF 38%, #FFFFFF 44%, 
+		#0F5AA2 44%, #0F5AA2 56%, 
+		#FFFFFF 56%, #FFFFFF 62%, 
+		#000000 62%, #000000 100% 
+	);
+	background-size: 75% 75%, 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}

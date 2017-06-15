@@ -1,0 +1,23 @@
+.flag--bear-brotherhood {
+	background-image: linear-gradient(
+		to bottom,
+		#623905 0%,            #623905 14.285714286%,
+		#D56300 14.285714286%, #D56300 28.571428571%,
+		#FDDD62 28.571428571%, #FDDD62 42.857142857%,
+		#FEE6B8 42.857142857%, #FEE6B8 57.142857143%, 
+		#FFFFFF 57.142857143%, #FFFFFF 71.428571429%,
+		#555555 71.428571429%, #555555 85.714285714%,
+		#000000 85.714285714%, #000000 100%
+	);
+	&::before {
+		content: '';
+		position: absolute;
+		top: 6%;
+		left: 7%;
+		width: 93%;
+		height: 46%;
+		background-position: top left;
+		background-repeat: no-repeat;
+		background-image: url('../images/bear-brotherhood.svg');
+	}
+}

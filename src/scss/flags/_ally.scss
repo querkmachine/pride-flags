@@ -1,0 +1,29 @@
+.flag--ally {
+	background-image: linear-gradient(
+		to bottom, 
+		#000000 0%,       #000000 16.7777%, 
+		#FFFFFF 16.7777%, #FFFFFF 33.3333%,
+		#000000 33.3333%, #000000 50%,
+		#FFFFFF 50%,      #FFFFFF 66.7777%, 
+		#000000 66.7777%, #000000 83.3333%,
+		#FFFFFF 83.3333%, #FFFFFF 100%
+	); 
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: linear-gradient(
+			to bottom, 
+			#E40303 0%,       #E40303 16.7777%, 
+			#FF8C00 16.7777%, #FF8C00 33.3333%,
+			#FFED00 33.3333%, #FFED00 50%,
+			#008026 50%,      #008026 66.7777%, 
+			#004DFF 66.7777%, #004DFF 83.3333%,
+			#750787 83.3333%, #750787 100%
+		); 
+		clip-path: polygon(0 100%, 50% 0, 100% 100%, 66.6666% 100%, 50% 66.6666%, 33.3333% 100%);
+	}
+}

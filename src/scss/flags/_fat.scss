@@ -1,0 +1,14 @@
+.flag--fat {
+	background-image: url('../images/fat.svg'),
+	linear-gradient(
+		to bottom,
+		#000000 0%,  #000000 20%,
+		#F0467A 20%, #F0467A 40%,
+		#FEFDBA 40%, #FEFDBA 60%,
+		#653D42 60%, #653D42 80%,
+		#000000 80%, #000000 100%
+	);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: auto 42%, 100% 100%;
+}

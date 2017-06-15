@@ -1,0 +1,24 @@
+.flag--leather {
+	background-image: linear-gradient(
+		#000000 0%,            #000000 11.111111111%,
+		#18186B 11.111111111%, #18186B 22.222222222%,
+		#000000 22.222222222%, #000000 33.333333333%,
+		#18186B 33.333333333%, #18186B 44.444444444%,
+		#FFFFFF 44.444444444%, #FFFFFF 55.555555556%, 
+		#18186B 55.555555556%, #18186B 66.666666667%, 
+		#000000 66.666666667%, #000000 77.777777778%,
+		#18186B 77.777777778%, #18186B 88.888888889%,
+		#000000 88.888888889%, #000000 100%
+	);
+	&::before {
+		content: '';
+		position: absolute;
+		top: 2%;
+		left: 7%;
+		width: 93%;
+		height: 40%;
+		background-position: top left;
+		background-repeat: no-repeat;
+		background-image: url('../images/leather.svg');
+	}
+}

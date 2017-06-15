@@ -1,0 +1,12 @@
+.flag--twink {
+	background-image: url('../images/twink.svg'), 
+	linear-gradient(
+		to bottom, 
+		#FFB0FF 0%,       #FFB0FF 33.3333%, 
+		#FFFFFF 33.3333%, #FFFFFF 66.6666%, 
+		#FFFF80 66.6666%, #FFFF80 100% 
+	); 
+	background-size: auto 25%, 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}

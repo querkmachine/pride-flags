@@ -1,0 +1,23 @@
+.flag--lipstick-lesbian {
+	background-image: linear-gradient(
+		to bottom, 
+		#A60061 0%,            #A60061 14.285714286%,
+		#B95393 14.285714286%, #B95393 28.571428572%,
+		#D260A7 28.571428572%, #D260A7 42.857142858%,
+		#FFFFFF 42.857142858%, #FFFFFF 57.142857144%,
+		#E5ABD0 57.142857144%, #E5ABD0 71.42857143%,
+		#C74D52 71.42857143%,  #C74D52 85.714285716%,
+		#8C1D00 85.714285716%, #8C1D00 100%
+	);
+	&::before {
+		content: '';
+		position: absolute;
+		top: 7%;
+		left: 3%;
+		width: 97%;
+		height: 45%;
+		background-position: top left;
+		background-repeat: no-repeat;
+		background-image: url('../images/lipstick-lesbian.svg');
+	}
+}

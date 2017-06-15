@@ -1,0 +1,18 @@
+.flag--ownership {
+	background-image: url('../images/ownership.svg'),
+	linear-gradient(
+		to bottom,
+		#000000 0%,            #000000 11.111111111%,
+		#FFFFFF 11.111111111%, #FFFFFF 22.222222222%,
+		#000000 22.222222222%, #000000 33.333333333%,
+		#FFFFFF 33.333333333%, #FFFFFF 44.444444444%,
+		#000000 44.444444444%, #000000 55.555555556%,
+		#FFFFFF 55.555555556%, #FFFFFF 66.666666667%,
+		#000000 66.666666667%, #000000 77.777777778%,
+		#FFFFFF 77.777777778%, #FFFFFF 88.888888889%,
+		#000000 88.888888889%, #000000 100%
+	);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: auto 77.777777778%, 100% 100%;
+}

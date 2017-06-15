@@ -1,227 +1,93 @@
 <!doctype html>
-<html>
+<html lang="en-GB" dir="ltr">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="stylesheet" href="/dst/css/stylesheet.css">
 	<title>Pride flags</title>
-	<style>
-		* { margin: 0; padding: 0; }
-		html, body { height: 100%; font-family: sans-serif; font-weight: bold; font-size: 2vw; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
-		label { display: block; width: 20%; }
-		input[type='checkbox'] { position: absolute; top: -9999em; left: -9999em; }
-		label { position: absolute; left: 0; z-index: 1; transition: all .3s ease; cursor: pointer; }
-		label span { display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 1; transition: opacity .3s ease; color: #FFF; background-color: rgba(0,0,0,.25); padding: 5px 7px; border-radius: 3px; text-shadow: 1px 1px 0 rgba(0,0,0,.85); text-align: center; }
-		input[type='checkbox']:checked + label { width: 100%; top: 0; left: 0; bottom: 0; right: 0; z-index: 10; }
-		input[type='checkbox']:checked + label span { opacity: 0; }
-		label.row1 { top: 0; bottom: 66.6666%; }
-		label.row2 { top: 33.3333%; bottom: 33.3333%; }
-		label.row3 { top: 66.6666%; bottom: 0; }
-		label[for='rainbow'] { 
-			left: 0;
-			background-image: linear-gradient(
-				to bottom, 
-				#E40303 0%,       #E40303 16.7777%, 
-				#FF8C00 16.7777%, #FF8C00 33.3333%,
-				#FFED00 33.3333%, #FFED00 50%,
-				#008026 50%,      #008026 66.7777%, 
-				#004DFF 66.7777%, #004DFF 83.3333%,
-				#750787 83.3333%, #750787 100%
-			); 
-		}
-		label[for='bisexual'] { 
-			left: 20%;
-			background-image: linear-gradient(
-				to bottom, 
-				#D70270 0%,  #D70270 40%,
-				#734F96 40%, #734F96 60%,
-				#0038A8 60%, #0038A8 100%
-			); 
-		}
-		label[for='pansexual'] { 
-			left: 40%;
-			background-image: linear-gradient(
-				to bottom, 
-				#FF218C 0%,       #FF218C 33.3333%, 
-				#FFD800 33.3333%, #FFD800 66.6666%, 
-				#21B1FF 66.6666%, #21B1FF 100% 
-			); 
-		}
-		label[for='polysexual'] { 
-			left: 60%;
-			background-image: linear-gradient(
-				to bottom, 
-				#FF00B6 0%,       #FF00B6 33.3333%, 
-				#00E26B 33.3333%, #00E26B 66.6666%, 
-				#008BFA 66.6666%, #008BFA 100% 
-			); 
-		}
-		label[for='asexual'] { 
-			left: 80%;
-			background-image: linear-gradient(
-				to bottom, 
-				#000000 0%,  #000000 25%, 
-				#A3A3A3 25%, #A3A3A3 50%, 
-				#FFFFFF 50%, #FFFFFF 75%, 
-				#800080 75%, #800080 100%
-			); 
-		}
-		label[for='genderqueer'] { 
-			left: 0;
-			background-image: linear-gradient(
-				to bottom, 
-				#C26BDD 0%,       #C26BDD 33.3333%,
-				#FFFFFF 33.3333%, #FFFFFF 66.6666%,
-				#2E8820 66.6666%, #2E8820 100%
-			); 
-		}
-		label[for='bigender'] { 
-			left: 20%;
-			background-image: linear-gradient(
-				to bottom, 
-				#FF94FF 0%,       #FF94FF 16.7777%, 
-				#FFFFFF 16.7777%, #FFFFFF 33.3333%,
-				#98CEF1 33.3333%, #98CEF1 45%,
-				#98CEF1 45%,      #FFAEDD 55%,
-				#FFAEDD 55%,      #FFAEDD 66.7777%, 
-				#FFFFFF 66.7777%, #FFFFFF 83.3333%,
-				#FF94FF 83.3333%, #FF94FF 100%
-			); 
-		}
-		label[for='genderfluid'] { 
-			left: 40%;
-			background-image: linear-gradient(
-				to bottom, 
-				#FF579D 0%,  #FF579D 20%, 
-				#FFFFFF 20%, #FFFFFF 40%, 
-				#D300D7 40%, #D300D7 60%, 
-				#000000 60%, #000000 80%, 
-				#421CC0 80%, #421CC0 100%
-			); 
-		}
-		label[for='transgender'] { 
-			left: 60%;
-			background-image: linear-gradient(
-				to bottom, 
-				#5BCEFA 0%,  #5BCEFA 20%,
-				#F5A9B8 20%, #F5A9B8 40%,
-				#FFFFFF 40%, #FFFFFF 60%,
-				#F5A9B8 60%, #F5A9B8 80%,
-				#5BCEFA 80%, #5BCEFA 100%
-			); 
-		}
-		label[for='agender'] { 
-			left: 80%; 
-			background-image: linear-gradient(
-				to bottom, 
-				#000000 0%,            #000000 14.285714286%,
-				#B9B9B9 14.285714286%, #B9B9B9 28.571428572%,
-				#FFFFFF 28.571428572%, #FFFFFF 42.857142858%,
-				#A2FE80 42.857142858%, #A2FE80 57.142857144%,
-				#FFFFFF 57.142857144%, #FFFFFF 71.42857143%,
-				#B9B9B9 71.42857143%,  #B9B9B9 85.714285716%,
-				#000000 85.714285716%, #000000 100%
-			); 
-		}
-		label[for='intersex'] { 
-			left: 0%;
-			background-color: #FFD800;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: 70% 70%;
-			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20347.6%20347.6%22%3E%3Cpath%20fill%3D%22%237902AA%22%20d%3D%22M173.8%20347.6C78%20347.6%200%20269.7%200%20173.8%200%2078%2078%200%20173.8%200c95.8%200%20173.8%2078%20173.8%20173.8%200%2095.9-77.9%20173.8-173.8%20173.8zm0-294c-66.3%200-120.2%2053.9-120.2%20120.2S107.5%20294%20173.8%20294%20294%20240.1%20294%20173.8%20240.1%2053.6%20173.8%2053.6z%22%2F%3E%3C%2Fsvg%3E");
-		}
-		label[for='polyamorous'] {
-			left: 20%;
-			background-image: linear-gradient(
-				#0000FF 0%,         #0000FF 33.333333%,
-				#FF0000 33.333333%, #FF0000 66.666666%,
-				#000000 66.666666%, #000000 100%
-			);
-		}
-		label[for='polyamorous']::before {
-			content: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20633%20587.7%22%3E%3Cpath%20fill%3D%22%23FF0%22%20d%3D%22M633%200c-.8%2058-16.3%2092.6-46.5%20104.1-13.1%205.7-48.6%208.6-106.5%208.6v346.5c0%2056.3%2017.1%2084.5%2051.4%2084.5%2039.2%200%2061.2-42%2066.1-126.1v-20.8h29.4c0%20127.3-42.9%20191-128.6%20191-64.5%200-103.3-31.8-116.3-95.5-3.3-13.9-4.9-29-4.9-45.3V112.7h-164v181.2c-6.5%20195.9-47.8%20293.9-123.7%20293.9-49.8%200-78.4-26.9-85.7-80.8C2%20496.3.8%20469.8%200%20427.3h29.4c0%2031.8%209.4%2053.5%2028.2%2064.9%205.7%204.1%2012.2%206.1%2019.6%206.1%2066.9%200%20100.4-115.5%20100.4-346.5v-39.2h-61.2c-40%200-65.3%2018-75.9%2053.9-.8%201.6-1.2%203.3-1.2%204.9H9.8c10.6-67.8%2033.5-111%2068.6-129.8%2024.5-12.2%2066.1-18.4%20124.9-18.4l356.3%208.6h3.7c27.8%200%2043.3-10.6%2046.5-31.8H633z%22%2F%3E%3C%2Fsvg%3E");
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 17%;
-			transform: translate(-50%, -50%);
-		}
-		label[for='bdsm'] {
-			left: 40%;
-			background-image: linear-gradient(
-				#000000 0%,            #000000 11.111111111%,
-				#18186B 11.111111111%, #18186B 22.222222222%,
-				#000000 22.222222222%, #000000 33.333333333%,
-				#18186B 33.333333333%, #18186B 44.444444444%,
-				#FFFFFF 44.444444444%, #FFFFFF 55.555555556%, 
-				#18186B 55.555555556%, #18186B 66.666666667%, 
-				#000000 66.666666667%, #000000 77.777777778%,
-				#18186B 77.777777778%, #18186B 88.888888889%,
-				#000000 88.888888889%, #000000 100%
-			);
-		}
-		label[for='bdsm']::before {
-			content: "";
-			position: absolute;
-			top: 2%;
-			left: 7%;
-			width: 50%;
-			height: 40%;
-			background-position: top left;
-			background-repeat: no-repeat;
-			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20679.6%20671.1%22%3E%3Cpath%20fill%3D%22%23E70039%22%20stroke%3D%22%23000%22%20stroke-width%3D%22.25%22%20d%3D%22M273.9%20230.7c-67.9-26.7-143.6-23.3-202%2022.4-82.7%2064.7-95.8%20178.4-30%20262.5C169.4%20678.9%20276.3%20635.2%20618%20671.1%20665.8%20331%20734%20237.8%20606.5%2074.5c-65.7-84.1-179.3-99-262-34.4-58.5%2045.7-80.1%20118.3-70.6%20190.6z%22%2F%3E%3C%2Fsvg%3E");
-		}
-		label[for='bear'] {
-			left: 60%;
-			background-image: linear-gradient(
-				to bottom,
-				#623905 0%,            #623905 14.285714286%,
-				#D56300 14.285714286%, #D56300 28.571428571%,
-				#FDDD62 28.571428571%, #FDDD62 42.857142857%,
-				#FEE6B8 42.857142857%, #FEE6B8 57.142857143%, 
-				#FFFFFF 57.142857143%, #FFFFFF 71.428571429%,
-				#555555 71.428571429%, #555555 85.714285714%,
-				#000000 85.714285714%, #000000 100%
-			);
-		}
-		label[for='bear']::before {
-			content: "";
-			position: absolute;
-			top: 6%;
-			left: 7%;
-			width: 50%;
-			height: 46%;
-			background-position: top left;
-			background-repeat: no-repeat;
-			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20684.8%20623.2%22%3E%3Cpath%20d%3D%22M224.7%200c-22.6%200-45.6%205.2-64.7%2017.5-84.9%2054.7%2033.7%2077.4%2053.2%2088.5%2018.6%2010.7%2088.9%2090.8%20117.8-33.3C339.8%2034.1%20282.7%200%20224.7%200m180.1%2044.4c-70.2%207.5-3.2%20170.6%2093.6%20176.1%2065.5%203.6%20114.7-155.8-93.6-176.1M30.3%2079.7C-32%2077.7%205.7%20194%20106.1%20234.8c20.2%208.3%2056.3-18.6%2057.1-63.5.4-16.6-28.1-88-132.9-91.6m242%2070.3c-28.2-.4-57.9%2011.9-90.5%2045.6-114.7%20120.2%2054.7%20140.8%2042.1%20205.9-38.5%20192.4-3.6%20208.3%2032.9%20220.6%2046.4%2015.5%20134.1-132.5%20171-160.3%2049.2-37.3%20309-167.4%20247.6-233.3-88.5-94.4-107.1%2029-228.9-4-57.9-15.4-112.3-74.5-174.2-74.5M48.2%20286c-11.1-.4-21.8%201.6-32.1%206.3C-29.6%20313%2058.9%20437.2%2099%20440.8c49.2%204.4%2069-35.3%2069.8-58.3%201.2-30.2-61.1-95.3-120.6-96.5m15.9%20185.3c-17.9.4-31.7%204.8-38.1%2013.1C9.7%20509%20111.7%20605%20139.8%20611.3c25.8%206%2050-51.6%2045.2-74.2-8.7-41.2-76.1-66.2-120.9-65.8%22%2F%3E%3C%2Fsvg%3E");
-		}
-		label[for='rubber'] {
-			left: 80%;
-			background-color: #000000;
-			background-position: bottom center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201020%20620%22%3E%3Cpath%20fill%3D%22%23FCC800%22%20d%3D%22M690.93%20449.12l-90.1%2045.9-58.2-83.1-113.1-161.5H.03v-117.2h490.5l148.1%20211.5%20380.5-193.9v131.5l-327.3%20166.8%22%2F%3E%3Cpath%20fill%3D%22%23D32011%22%20d%3D%22M0%20239.104h436.6l168.6%20240.7%20413.7-210.8.3%2030.4-422.7%20215.4-174-248.5H0v-27.2%2027.2M1019.17%20431.213l-370.5%20188.8-59.6-.4%20430.1-219.1v30.7z%22%2F%3E%3Cpath%20fill%3D%22%23D32011%22%20d%3D%22M361.412%20383.542H.012v-27.2h375.6l184.3%20263.3h-33.2l-165.3-236.1M498.72%20121.957H.02v27.2h484.6l150.5%20215%20384-195.7v-30.5l-375.3%20191.2-145.1-207.2H.02v27.2%22%2F%3E%3C%2Fsvg%3E");
-		}
-	</style>
 </head>
 <body>
-	<input type="checkbox" id="rainbow"> <label class="row1" for="rainbow"><span>Rainbow</span></label>
-	<input type="checkbox" id="bisexual"> <label class="row1" for="bisexual"><span>Bisexual</span></label>
-	<input type="checkbox" id="pansexual"> <label class="row1" for="pansexual"><span>Pansexual</span></label>
-	<input type="checkbox" id="polysexual"> <label class="row1" for="polysexual"><span>Polysexual</span></label>
-	<input type="checkbox" id="asexual"> <label class="row1" for="asexual"><span>Asexual</span></label>
-	<input type="checkbox" id="genderqueer"> <label class="row2" for="genderqueer"><span>Genderqueer</span></label>
-	<input type="checkbox" id="bigender"> <label class="row2" for="bigender"><span>Bigender</span></label>
-	<input type="checkbox" id="genderfluid"> <label class="row2" for="genderfluid"><span>Genderfluid</span></label>
-	<input type="checkbox" id="transgender"> <label class="row2" for="transgender"><span>Transgender</span></label>
-	<input type="checkbox" id="agender"> <label class="row2" for="agender"><span>Agender</span></label>
-	<input type="checkbox" id="intersex"> <label class="row3" for="intersex"><span>Intersex</span></label>
-	<input type="checkbox" id="polyamorous"> <label class="row3" for="polyamorous"><span>Polyamory</span></label>
-	<input type="checkbox" id="bdsm"> <label class="row3" for="bdsm"><span>BDSM/Leather Pride</span></label>
-	<input type="checkbox" id="bear"> <label class="row3" for="bear"><span>Bear Brotherhood</span></label>
-	<input type="checkbox" id="rubber"> <label class="row3" for="rubber"><span>Rubber Pride</span></label>
+	<header class="masthead" role="banner">
+		<h1 class="masthead__title">Guide to Pride Flags</h1>
+	</header>
+	<section class="section">
+		<header class="section__header">
+			<h2 class="section__title">Sexuality</h2>
+			<div class="section__description">
+				<p>Used to represent sexual attraction to one or more gender identities or biological sexes.</p>
+			</div>
+		</header>
+		<div class="grid">
+			<div class="flag flag--asexual" id="asexual"><span class="flag__label">Asexual</span></div>
+			<div class="flag flag--bisexual" id="bisexual"><span class="flag__label">Bisexual</span></div>
+			<div class="flag flag--rainbow" id="rainbow"><span class="flag__label">Gay / Rainbow Flag</span></div>
+			<div class="flag flag--lesbian" id="lesbian"><span class="flag__label">Lesbian</span></div>
+			<div class="flag flag--lipstick-lesbian" id="lipstick-lesbian"><span class="flag__label">Lipstick Lesbian</span></div>
+			<div class="flag flag--pansexual" id="pansexual"><span class="flag__label">Pansexual</span></div>
+			<div class="flag flag--polysexual" id="polysexual"><span class="flag__label">Polysexual</span></div>
+		</div>
+	</section>
+	<section class="section">
+		<header class="section__header">
+			<h2 class="section__title">Romanticism</h2>
+			<div class="section__description">
+				<p>Used to represent <em>romantic</em> attraction to one or more gender identities or biological sexes. This can be distinct from sexual attraction for multiple reasons.</p>
+			</div>
+		</header>
+		<div class="grid">
+			<div class="flag flag--aromantic" id="aromantic"><span class="flag__label">Aromantic</span></div>
+			<div class="flag flag--aromantic-alt" id="aromantic-alt"><span class="flag__label">Aromantic (alternate)</span></div>
+			<div class="flag flag--lithoromantic" id="lithoromantic"><span class="flag__label">Lithoromantic</span></div>
+		</div>
+	</section>
+	<section class="section">
+		<header class="section__header">
+			<h2 class="section__title">Gender identity</h2>
+			<div class="section__description">
+				<p>Used to represent an individual's gender identity, whuch may be the same or different from the one they were assigned at birth.</p>
+			</div>
+		</header>
+		<div class="grid">
+			<div class="flag flag--agender" id="agender"><span class="flag__label">Agender</span></div>
+			<div class="flag flag--bigender" id="bigender"><span class="flag__label">Bigender</span></div>
+			<div class="flag flag--genderfluid" id="genderfluid"><span class="flag__label">Genderfluid</span></div>
+			<div class="flag flag--genderqueer" id="genderqueer"><span class="flag__label">Genderqueer</span></div>
+			<div class="flag flag--intersex" id="intersex"><span class="flag__label">Intersex</span></div>
+			<div class="flag flag--non-binary" id="non-binary"><span class="flag__label">Non-binary</span></div>
+			<div class="flag flag--transgender" id="transgender"><span class="flag__label">Transgender</span></div>
+		</div>
+	</section>
+	<section class="section">
+		<header class="section__header">
+			<h2 class="section__title">Kink</h2>
+			<div class="section__description">
+				<p>Used to represent attraction to physical attributes, situations or other paraphernalia. Although generally considered part of the LGBT+ umbrella, users of these flags are not necessarily part of the LGBT+ community.</p>
+			</div>
+		</header>
+		<div class="grid">
+			<div class="flag flag--bear-brotherhood" id="bear-brotherhood"><span class="flag__label">Bear Brotherhood</span></div>
+			<div class="flag flag--fat" id="fat"><span class="flag__label">Fat</span></div>
+			<div class="flag flag--leather" id="leather"><span class="flag__label">Leather / BDSM</span></div>
+			<div class="flag flag--master-slave" id="master-slave"><span class="flag__label">Master-Slave</span></div>
+			<div class="flag flag--military" id="military"><span class="flag__label">Military / Uniform</span></div>
+			<div class="flag flag--ownership" id="ownership"><span class="flag__label">Ownership</span></div>
+			<div class="flag flag--pony" id="pony"><span class="flag__label">Pony</span></div>
+			<div class="flag flag--rubber" id="rubber"><span class="flag__label">Rubber</span></div>
+			<div class="flag flag--twink" id="twink"><span class="flag__label">Twink</span></div>
+		</div>
+	</section>
+	<section class="section">
+		<header class="section__header">
+			<h2 class="section__title">Other</h2>
+		</header>
+		<div class="grid">
+			<div class="flag flag--ally" id="ally"><span class="flag__label">Allies for Equality</span></div>
+			<div class="flag flag--polyamorous" id="polyamorous"><span class="flag__label">Polyamorous</span></div>
+			<div class="flag flag--rainbow-original" id="rainbow-original"><span class="flag__label">Rainbow (original)</span></div>
+			<div class="flag flag--rainbow-transitional" id="rainbow-transitional"><span class="flag__label">Rainbow (transitional)</span></div>
+		</div>
+	</section>
 </body>
 </html>
